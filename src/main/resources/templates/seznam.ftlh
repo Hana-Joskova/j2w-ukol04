@@ -5,25 +5,28 @@
     [#include "_common/head.ftlh"]
 </head>
 <body>
+
+[#list seznam]
+ [#items as clovek]
 <div class="seznam">
-    [#list seznam as vizitka]
-    <a href="/detail/${vizitka?index}">
+    <a href="/detail/${clovek?index}">
         <div class="vizitka">
-            <div class="jmeno">Dita (Přikrylová) Formánková</div>
-            <div class="firma">Czechitas z. s.</div>
+            <div class="jmeno">${clovek.jmeno}</div>
+            <div class="firma">${clovek.firma}</div>
             <div class="udaje">
                 <div class="adresa">
-                    <div>Václavské náměstí 837/11</div>
-                    <div><span>11000</span> Praha 1</div>
+                    <div>${clovek.ulice}</div>
+                    <div>${clovek.obecPsc}</div>
                 </div>
                 <div class="kontakty">
-                    <div><i class="bi bi-at"></i> dita@example.com</div>
-                    <div><i class="bi bi-phone"></i> +420 800123456</div>
-                    <div><i class="bi bi-globe"></i> www.czechitas.cz</div>
+                    <div><i class="bi bi-at"></i> ${clovek.email}</div>
+                    <div><i class="bi bi-phone"></i> ${clovek.telefon}</div>
+                    <div><i class="bi bi-globe"></i> ${clovek.web}</div>
                 </div>
             </div>
         </div>
     </a>
+     [/#items]
     [/#list]
 
     <a href="/nova">
